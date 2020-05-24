@@ -1,0 +1,18 @@
+﻿@model MyBlog.Models.Blog
+
+@{
+    Layout = "_Layout";
+    ViewBag.PageName = "Blog Details";
+}
+
+<div class="movie-details">
+    <img class="movie-img" src="@Model.ImageUrl" />
+    <div class="movie-title">@Model.Title</div>
+    <div class="movie-desc">
+        <p>@Model.Description</p>
+    </div>
+    <div>
+        <p>@Model.Text</p>
+    </div>
+</div>
+

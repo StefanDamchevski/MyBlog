@@ -1,0 +1,93 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-bar {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    opacity: 0.9;
+}
+
+    .nav-bar a {
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 110%;
+        font-family: 'Rock Salt';
+    }
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.nav-link:hover {
+    background-color: #f2f2f2;
+    color: #333;
+    transition: 1s;
+}
+
+.nav-link:after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: #333;
+}
+
+.nav-link:hover:after {
+    width: 100%;
+    margin: 0 auto;
+    transition: 2s;
+}
+
+#logo {
+    text-decoration: none;
+    color: #f2f2f2;
+    font-size:120%;
+}
+
+.form-group {
+    margin-top: 2%;
+}
+
+.form-control {
+    font-family: 'Roboto';
+}
+
+.submit-button {
+    color: rgb(72, 71, 99);
+    outline: none;
+    border: none;
+    background-color: inherit;
+    font-size: x-large;
+}
+
+    .submit-button:hover {
+        color: #f1f1f1;
+        transition: 2s;
+    }
+
+.search-bar {
+    position: absolute;
+    right: 7%;
+    top: 10%;
+}
+
+.btn {
+    position: absolute;
+    right: -37%;
+    bottom: 28%;
+    background-color: inherit;
+    border: none;
+}

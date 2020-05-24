@@ -1,0 +1,36 @@
+﻿@model List<MyBlog.Models.Blog>;
+
+@addTagHelper * , Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+    ViewBag.PageName = "My Blog";
+}
+
+<div class="search-bar" id="searchBar">
+    <form asp-controller="Movie" asp-action="Overview">
+        <div class="form-group">
+            <input class="form-control" placeholder="Search" />
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    @foreach (var blog in @Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">
+                    <img src="@blog.ImageUrl" class="card-img-top" height="300" width="120">
+                    <div class="card-body">
+                        <h5 class="card-title">@blog.Title</h5>
+                        <p class="card-text">@blog.Description</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    }
+</div>
