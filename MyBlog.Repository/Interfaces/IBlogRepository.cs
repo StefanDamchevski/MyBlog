@@ -10,5 +10,6 @@ namespace MyBlog.Repository.Interfaces
         List<Blog> GetAll();
         Blog GetById(int id);
         void Add(Blog blog);
+        List<Blog> GetByTitle(string title);
     }
 }

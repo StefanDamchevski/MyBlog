@@ -18,14 +18,19 @@ namespace MyBlog.Services
         {
             BlogRepository.Add(blog);
         }
-        public List<Blog> GetAll()
+        public List<Blog> GetByTitle(string title)
         {
-           return BlogRepository.GetAll();
+           return BlogRepository.GetByTitle(title);
         }
 
         public Blog GetById(int id)
         {
             return BlogRepository.GetById(id);
+        }
+
+        public List<Blog> GetAll()
+        {
+            return BlogRepository.GetAll();
         }
     }
 }

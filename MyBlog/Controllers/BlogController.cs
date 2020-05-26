@@ -12,9 +12,9 @@ namespace MyBlog.Controllers
         {
             BlogService = blogService;
         }
-        public IActionResult Overview()
+        public IActionResult Overview(string title)
         {
-            var blogs = BlogService.GetAll();
+            var blogs = BlogService.GetByTitle(title);
             return View(blogs);
         }
         public IActionResult Details(int id)
