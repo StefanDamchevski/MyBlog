@@ -9,7 +9,7 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <title>@ViewBag.PageName</title>
 </head>
-<body>
+<body class="body">
     <div class="main">
         <div class="img-top">
             <a asp-controller="Blog" asp-action="Overview" id="logo">
@@ -22,7 +22,7 @@
             <a asp-controller="Info" asp-action="ContactUs" class="nav-link">Contact</a>
             <a asp-controller="Info" asp-action="AboutUs" class="nav-link">About</a>
             <div class="search-bar" id="searchBar">
-                <form asp-controller="Blog" asp-action="Overview" class="asd">
+                <form asp-controller="Blog" asp-action="Overview">
                     <div class="search-form">
                         <input name="Title" value="" id="title" class="form-control" placeholder="Search" />
                     </div>

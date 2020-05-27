@@ -9,14 +9,28 @@ namespace MyBlog.Models
     {
         public int Id { get; set; }
         [Required]
+        [MaxLength (200)]
         public string Title { get; set; }
         [Required]
+        [MaxLength (5000)]
         public string Description { get; set; }
         [Required]
-        [MaxLength (200)]
         public string ImageUrl { get; set; }
-        [Required]
-        [MaxLength (5000)]
-        public string Text { get; set; }
+        public DateTime Date { get; set; }
+        public int ResizeString()
+        {
+            if (Title.Length > 150 && Title.Length <= 200)
+            {
+                return Title.Length / 4;
+            }
+            else if(Title.Length > 100 && Title.Length <= 150)
+            {
+                return Title.Length / 2;
+            }
+            else
+            {
+                return Title.Length;
+            }
+        }
     }
 }

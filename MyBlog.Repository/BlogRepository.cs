@@ -1,5 +1,6 @@
 ﻿using MyBlog.Models;
 using MyBlog.Repository.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -9,19 +10,21 @@ namespace MyBlog.Repository
     {
         public void Add(Blog blog)
         {
-            using (var cnn = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = MyBlog; Integrated Security = true"))
+            blog.Date = DateTime.Now;
+
+            using (var cnn = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = MyBlogs; Integrated Security = true"))
             {
                 cnn.Open();
 
-                var query = @"Insert into Blogs (Title, ImageUrl, Description, Text)
-                                values(@Title, @ImageUrl, @Description, @Text)";
+                var query = @"Insert into Blogs (Title, ImageUrl, Description, Date)
+                                values(@Title, @ImageUrl, @Description, @Date)";
 
                 var command = new SqlCommand(query, cnn);
 
                 command.Parameters.AddWithValue("@Title", blog.Title);
                 command.Parameters.AddWithValue("@ImageUrl", blog.ImageUrl);
                 command.Parameters.AddWithValue("@Description", blog.Description);
-                command.Parameters.AddWithValue("@Text", blog.Text);
+                command.Parameters.AddWithValue("@Date", blog.Date);
 
                 command.ExecuteNonQuery();
             }
@@ -29,7 +32,7 @@ namespace MyBlog.Repository
         public List<Blog> GetAll()
         {
             var result = new List<Blog>();
-            using (var cnn = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = MyBlog; Integrated Security = true"))
+            using (var cnn = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = MyBlogs; Integrated Security = true"))
             {
                 cnn.Open();
 
@@ -47,7 +50,7 @@ namespace MyBlog.Repository
                     blog.Title = reader.GetString(1);
                     blog.ImageUrl = reader.GetString(2);
                     blog.Description = reader.GetString(3);
-                    blog.Text = reader.GetString(4);
+                    blog.Date = reader.GetDateTime(4);
 
                     result.Add(blog);
                 }
@@ -57,7 +60,7 @@ namespace MyBlog.Repository
         public Blog GetById(int id)
         {
             Blog result = null;
-            using (var cnn = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = MyBlog; Integrated Security = true"))
+            using (var cnn = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = MyBlogs; Integrated Security = true"))
             {
                 cnn.Open();
 
@@ -77,7 +80,7 @@ namespace MyBlog.Repository
                     result.Title = reader.GetString(1);
                     result.ImageUrl = reader.GetString(2);
                     result.Description = reader.GetString(3);
-                    result.Text = reader.GetString(4);
+                    result.Date = reader.GetDateTime(4);
                 }
             }
             return result;
@@ -86,7 +89,7 @@ namespace MyBlog.Repository
         {
             var result = new List<Blog>();
 
-            using (var cnn = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = MyBlog; Integrated Security = true"))
+            using (var cnn = new SqlConnection("Data Source =.\\SQLEXPRESS; Initial Catalog = MyBlogs; Integrated Security = true"))
             {
                 cnn.Open();
 
@@ -114,7 +117,7 @@ namespace MyBlog.Repository
                     blog.Title = reader.GetString(1);
                     blog.ImageUrl = reader.GetString(2);
                     blog.Description = reader.GetString(3);
-                    blog.Text = reader.GetString(4);
+                    blog.Date = reader.GetDateTime(4);
 
                     result.Add(blog);
                 }
