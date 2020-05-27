@@ -10,15 +10,31 @@
     <title>@ViewBag.PageName</title>
 </head>
 <body>
-    <div class="nav-bar" id="navBar">
-        <a asp-controller="Blog" asp-action="Overview" id="logo">My Blog</a>
-        <a asp-controller="Blog" asp-action="Overview" class="nav-link">Home</a>
-        <a asp-controller="Blog" asp-action="Create" class="nav-link">Create</a>
-        <a asp-controller="Info" asp-action="ContactUs" class="nav-link">Contact</a>
-        <a asp-controller="Info" asp-action="AboutUs" class="nav-link">About</a>
-    </div>
-    <div class="container">
-        @RenderBody()
+    <div class="main">
+        <div class="img-top">
+            <a asp-controller="Blog" asp-action="Overview" id="logo">
+                <img src="~/Images/MyBlog.png" height="285" />
+            </a>
+        </div>
+        <div class="nav-bar" id="navBar">
+            <a asp-controller="Blog" asp-action="Overview" class="nav-link">Home</a>
+            <a asp-controller="Blog" asp-action="Create" class="nav-link">Create</a>
+            <a asp-controller="Info" asp-action="ContactUs" class="nav-link">Contact</a>
+            <a asp-controller="Info" asp-action="AboutUs" class="nav-link">About</a>
+            <div class="search-bar" id="searchBar">
+                <form asp-controller="Blog" asp-action="Overview" class="asd">
+                    <div class="search-form">
+                        <input name="Title" value="" id="title" class="form-control" placeholder="Search" />
+                    </div>
+                    <div class="search-form">
+                        <input type="submit" value="Search" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            @RenderBody()
+        </div>
     </div>
     <script src="~/js/app.js"></script>
 </body>
