@@ -1,0 +1,9 @@
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlogs.Data\bin\Debug\netcoreapp2.2\MyBlog.Data.deps.json
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlogs.Data\bin\Debug\netcoreapp2.2\MyBlog.Data.dll
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlogs.Data\bin\Debug\netcoreapp2.2\MyBlog.Data.pdb
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.csprojAssemblyReference.cache
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.AssemblyInfoInputs.cache
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.AssemblyInfo.cs
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.dll
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.pdb
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.csproj.CoreCompileInputs.cache

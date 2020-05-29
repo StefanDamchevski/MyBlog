@@ -29,10 +29,10 @@ C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Info\ContactUs.cshtml.g.cs
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.csproj.CoreCompileInputs.cache
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Blog\Create.cshtml.g.cs
-C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\bin\Debug\netcoreapp2.2\MyBlog.Models.dll
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\bin\Debug\netcoreapp2.2\MyBlog.Repository.dll
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\bin\Debug\netcoreapp2.2\MyBlog.Service.dll
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\bin\Debug\netcoreapp2.2\MyBlog.Service.pdb
-C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\bin\Debug\netcoreapp2.2\MyBlog.Models.pdb
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\bin\Debug\netcoreapp2.2\MyBlog.Repository.pdb
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Blog\Details.cshtml.g.cs
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\bin\Debug\netcoreapp2.2\MyBlog.Data.dll
+C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog\bin\Debug\netcoreapp2.2\MyBlog.Data.pdb

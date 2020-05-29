@@ -1,4 +1,4 @@
-﻿using MyBlog.Models;
+﻿using MyBlog.Data;
 using MyBlog.Repository.Interfaces;
 using MyBlog.Service.Interfaces;
 using System;
@@ -31,6 +31,14 @@ namespace MyBlog.Services
         public List<Blog> GetAll()
         {
             return BlogRepository.GetAll();
+        }
+
+        public Blog GetBlogDetails(int id)
+        {
+            var blog = BlogRepository.GetById(id);
+            blog.Views += 1;
+            BlogRepository.Update(blog);
+            return blog;
         }
     }
 }

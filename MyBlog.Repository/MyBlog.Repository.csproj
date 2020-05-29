@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyBlog.Models\MyBlog.Models.csproj" />
+    <ProjectReference Include="..\MyBlogs.Data\MyBlog.Data.csproj" />
   </ItemGroup>
 
 </Project>

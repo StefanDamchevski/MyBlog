@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Operations;
-using MyBlog.Models;
+using MyBlog.Data;
 using MyBlog.Service.Interfaces;
 
 namespace MyBlog.Controllers
@@ -19,7 +19,7 @@ namespace MyBlog.Controllers
         }
         public IActionResult Details(int id)
         {
-            var currentBlog = BlogService.GetById(id);
+            var currentBlog = BlogService.GetBlogDetails(id);
             return View(currentBlog);
         }
 
