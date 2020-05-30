@@ -1,8 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -54,7 +53,8 @@
 }
 
 #logo img {
-    width: 80%;
+    width: 60%;
+    margin-left: 13%;
 }
 
 .form-group {
@@ -93,20 +93,20 @@
     background: linear-gradient(16deg, rgba(228,198,170,1) 17%, rgba(218,221,218,1) 40%, rgba(218,221,218,1) 65%, rgba(175,221,181,1) 83%);
 }
 
-#logo{
+#logo {
     padding-left: 10%;
 }
 
-.img-top{
+.img-top {
     display: flex;
     justify-content: center;
 }
 
-.container{
+.container {
     padding-top: 1%;
 }
 
-.search-form{
+.search-form {
     display: inline-flex;
 }
 
@@ -114,30 +114,26 @@
     font-family: 'Rock Salt';
 }
 
-.col-md-5 {
+.col-md-4 {
     margin-top: 2%;
-    margin-right: 3%;
-    -webkit-box-shadow: 2px 2px 10px 4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 2px 10px 4px rgba(0,0,0,0.75);
-    box-shadow: 2px 2px 10px 4px rgba(0,0,0,0.75);
 }
 
 .card {
     max-height: 10%;
 }
 
-.card-body{
+.card-body {
     text-align: center;
 }
 
-.row{
+.row {
     padding-top: 2%;
     justify-content: center;
 }
 
 .card-title {
     color: #2d5a87;
-    font-family: 'Raleway';
+    font-family: 'Roboto';
     font-size: medium;
 }
 
@@ -157,7 +153,7 @@
 }
 
 .control-label {
-    font-family: 'Raleway';
+    font-family: 'Roboto';
     font-size: medium;
     margin-top: 2%;
 }
@@ -180,39 +176,75 @@
         transition: 2s;
     }
 
-.contact-us {
+.contact-title {
+    font-family: 'Rock Salt';
     text-align: center;
-    font-family: 'Roboto';
-    color: #a1c7e2;
+    color: #afddb5;
+    font-size: x-large;
+    margin: 1% 0 3% 0;
 }
+
+.contact-text {
+    font-family: 'Roboto';
+    text-align: right;
+    margin-right: 18%;
+    color: rgb(78, 91, 94);
+}
+
 
 .about-us {
-    text-align: center;
     font-family: 'Roboto';
-    color: #a1c7e2;
 }
 
-.blog-details {
+.title-about {
+    margin: 1%;
     text-align: center;
+    color: #afddb5;
+    font-family: 'Rock Salt';
+    font-size: x-large;
+}
+
+.text-about {
+    text-align: center;
+    color: rgb(78, 91, 94);
+    margin-top: 2%;
 }
 
 .blog-img {
-    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: 200px;
 }
 
 .blog-desc {
-    width: 70%;
-    margin: 1% auto;
-    color:#2d5a87; font-family: 'Roboto';
+    width: 82%;
+    margin: 2% auto;
+    font-family: 'Roboto';
+    -webkit-box-shadow: -2px 2px 19px -2px rgba(94,83,72,1);
+    -moz-box-shadow: -2px 2px 19px -2px rgba(94,83,72,1);
+    box-shadow: -2px 2px 19px -2px rgba(94,83,72,1);
+    padding: 1%;
+    text-align: left;
 }
 
 .blog-title {
-    margin-top: 1%;
-    color: #a1c7e2;
-    font-family: 'Roboto';
+    text-align: center;
+    margin-top: 2%;
+    color: #285786;
+    font-family: 'Rock Salt';
+    font-size: 22px;
 }
 
-.date-time {
+.date-created {
+    text-align: center;
     font-family: 'Roboto';
     color: #a1c7e2;
+    margin-right: 2%;
+    margin-bottom: 1%;
+}
+
+.blog-views{
+    text-align: center;
 }

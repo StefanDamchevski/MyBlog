@@ -3551,11 +3551,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyBlog\\MyBlog.Services\\MyBlog.Service.csproj",
+      "projectUniqueName": "D:\\Academy\\MVC\\MyBlog\\MyBlog.Services\\MyBlog.Service.csproj",
       "projectName": "MyBlog.Service",
-      "projectPath": "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyBlog\\MyBlog.Services\\MyBlog.Service.csproj",
+      "projectPath": "D:\\Academy\\MVC\\MyBlog\\MyBlog.Services\\MyBlog.Service.csproj",
       "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyBlog\\MyBlog.Services\\obj\\",
+      "outputPath": "D:\\Academy\\MVC\\MyBlog\\MyBlog.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3571,8 +3571,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyBlog\\MyBlog.Repository\\MyBlog.Repository.csproj": {
-              "projectPath": "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyBlog\\MyBlog.Repository\\MyBlog.Repository.csproj"
+            "D:\\Academy\\MVC\\MyBlog\\MyBlog.Repository\\MyBlog.Repository.csproj": {
+              "projectPath": "D:\\Academy\\MVC\\MyBlog\\MyBlog.Repository\\MyBlog.Repository.csproj"
             }
           }
         }

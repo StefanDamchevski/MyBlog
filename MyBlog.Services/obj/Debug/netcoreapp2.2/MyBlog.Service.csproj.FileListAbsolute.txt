@@ -12,3 +12,17 @@ C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog.Services\obj\Debug\netcoreapp2
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog.Services\obj\Debug\netcoreapp2.2\MyBlog.Service.pdb
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog.Services\bin\Debug\netcoreapp2.2\MyBlog.Data.dll
 C:\Users\Stefan\Desktop\Academy\MVC\MyBlog\MyBlog.Services\bin\Debug\netcoreapp2.2\MyBlog.Data.pdb
+D:\Academy\MVC\MyBlog\MyBlog.Services\bin\Debug\netcoreapp2.2\MyBlog.Service.deps.json
+D:\Academy\MVC\MyBlog\MyBlog.Services\bin\Debug\netcoreapp2.2\MyBlog.Service.dll
+D:\Academy\MVC\MyBlog\MyBlog.Services\bin\Debug\netcoreapp2.2\MyBlog.Service.pdb
+D:\Academy\MVC\MyBlog\MyBlog.Services\bin\Debug\netcoreapp2.2\MyBlog.Data.dll
+D:\Academy\MVC\MyBlog\MyBlog.Services\bin\Debug\netcoreapp2.2\MyBlog.Repository.dll
+D:\Academy\MVC\MyBlog\MyBlog.Services\bin\Debug\netcoreapp2.2\MyBlog.Repository.pdb
+D:\Academy\MVC\MyBlog\MyBlog.Services\bin\Debug\netcoreapp2.2\MyBlog.Data.pdb
+D:\Academy\MVC\MyBlog\MyBlog.Services\obj\Debug\netcoreapp2.2\MyBlog.Service.csprojAssemblyReference.cache
+D:\Academy\MVC\MyBlog\MyBlog.Services\obj\Debug\netcoreapp2.2\MyBlog.Service.csproj.CoreCompileInputs.cache
+D:\Academy\MVC\MyBlog\MyBlog.Services\obj\Debug\netcoreapp2.2\MyBlog.Service.AssemblyInfoInputs.cache
+D:\Academy\MVC\MyBlog\MyBlog.Services\obj\Debug\netcoreapp2.2\MyBlog.Service.AssemblyInfo.cs
+D:\Academy\MVC\MyBlog\MyBlog.Services\obj\Debug\netcoreapp2.2\MyBlog.Service.csproj.CopyComplete
+D:\Academy\MVC\MyBlog\MyBlog.Services\obj\Debug\netcoreapp2.2\MyBlog.Service.dll
+D:\Academy\MVC\MyBlog\MyBlog.Services\obj\Debug\netcoreapp2.2\MyBlog.Service.pdb

@@ -3487,11 +3487,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyBlog\\MyBlogs.Data\\MyBlog.Data.csproj",
+      "projectUniqueName": "D:\\Academy\\MVC\\MyBlog\\MyBlogs.Data\\MyBlog.Data.csproj",
       "projectName": "MyBlog.Data",
-      "projectPath": "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyBlog\\MyBlogs.Data\\MyBlog.Data.csproj",
+      "projectPath": "D:\\Academy\\MVC\\MyBlog\\MyBlogs.Data\\MyBlog.Data.csproj",
       "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyBlog\\MyBlogs.Data\\obj\\",
+      "outputPath": "D:\\Academy\\MVC\\MyBlog\\MyBlogs.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",

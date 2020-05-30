@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Fz/AhaZIQxUpEcvIbDFyfEaHervGTI64ZjL0PR1D0AuGLqGlN4ErVS/V6MLnLXieHKCO4jX0hT9zv+pPuTBl3g==",
+  "dgSpecHash": "j7n91NNNewYfe3j2B4sMHOWtQagzsGto9axgBkGEX8aE1AdqcojPZUDmRdWTwCYuD6lP+52BFzBKs8agHfiwCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyBlog\\MyBlog\\MyBlog.csproj",
+  "projectFilePath": "D:\\Academy\\MVC\\MyBlog\\MyBlog\\MyBlog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
