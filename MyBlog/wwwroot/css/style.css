@@ -248,3 +248,14 @@
 .blog-views{
     text-align: center;
 }
+
+.add-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    font-family: 'Roboto';
+}
+
+.table {
+    font-family: 'Roboto';
+}

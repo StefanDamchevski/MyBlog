@@ -12,5 +12,7 @@ namespace MyBlog.Service.Interfaces
         void Add(Blog blog);
         List<Blog> GetByTitle(string title);
         Blog GetBlogDetails(int id);
+        void Delete(int id);
+        void UpdateBlog(Blog blog);
     }
 }

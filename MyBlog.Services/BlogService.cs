@@ -1,9 +1,7 @@
 ﻿using MyBlog.Data;
 using MyBlog.Repository.Interfaces;
 using MyBlog.Service.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MyBlog.Services
 {
@@ -22,23 +20,29 @@ namespace MyBlog.Services
         {
            return BlogRepository.GetByTitle(title);
         }
-
         public Blog GetById(int id)
         {
             return BlogRepository.GetById(id);
         }
-
         public List<Blog> GetAll()
         {
             return BlogRepository.GetAll();
         }
-
         public Blog GetBlogDetails(int id)
         {
             var blog = BlogRepository.GetById(id);
             blog.Views += 1;
             BlogRepository.Update(blog);
             return blog;
+        }
+        public void Delete(int id)
+        {
+            BlogRepository.Delete(id);
+        }
+
+        public void UpdateBlog(Blog blog)
+        {
+            BlogRepository.Update(blog);
         }
     }
 }

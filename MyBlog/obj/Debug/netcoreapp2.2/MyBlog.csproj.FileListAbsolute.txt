@@ -63,10 +63,13 @@ D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.TagHelpers.output.ca
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.RazorCoreGenerate.cache
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Blog\Create.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Blog\Details.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Blog\Modify.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Blog\ModifyOverview.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Blog\Overview.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Info\AboutUs.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Info\ContactUs.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.RazorTargetAssemblyInfo.cache
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.RazorTargetAssemblyInfo.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.Views.pdb

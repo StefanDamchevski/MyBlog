@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyBlog.Data;
+﻿using MyBlog.Data;
 using MyBlog.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -39,7 +38,17 @@ namespace MyBlog.Repository
         }
         public void Update(Blog blog)
         {
-            Context.Entry<Blog>(blog).State = EntityState.Modified;
+            Context.Blogs.Update(blog);
+            Context.SaveChanges();
+        }
+        public void Delete(int id)
+        {
+            var blog = new Blog()
+            {
+                Id = id,
+            };
+
+            Context.Blogs.Remove(blog);
             Context.SaveChanges();
         }
     }

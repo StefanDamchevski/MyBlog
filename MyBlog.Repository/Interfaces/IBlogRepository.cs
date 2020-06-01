@@ -12,5 +12,6 @@ namespace MyBlog.Repository.Interfaces
         void Add(Blog blog);
         List<Blog> GetByTitle(string title);
         void Update(Blog blog);
+        void Delete(int id);
     }
 }
