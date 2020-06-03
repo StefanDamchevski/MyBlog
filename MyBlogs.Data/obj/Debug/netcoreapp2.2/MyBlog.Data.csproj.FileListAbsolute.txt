@@ -15,3 +15,4 @@ D:\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.AssemblyI
 D:\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.AssemblyInfo.cs
 D:\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.dll
 D:\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.pdb
+D:\Academy\MVC\MyBlog\MyBlogs.Data\obj\Debug\netcoreapp2.2\MyBlog.Data.csprojAssemblyReference.cache

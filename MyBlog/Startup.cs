@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MyBlog.Data;
 using MyBlog.Repository;
 using MyBlog.Repository.Interfaces;
+using MyBlog.Service;
 using MyBlog.Service.Interfaces;
 using MyBlog.Services;
 
@@ -40,8 +42,20 @@ namespace MyBlog
             services.AddDbContext<MyBlogsContext>(options => options.UseSqlServer("Data Source=.\\SQLEXPRESS; Initial Catalog = MyBlogs; Integrated Security = true"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddAuthentication(options => {
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddCookie(options => {
+                options.LoginPath = "/auth/signin";
+            });
+
             services.AddTransient<IBlogRepository, BlogRepository>();
             services.AddTransient<IBlogService, BlogService>();
+            services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +75,7 @@ namespace MyBlog
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

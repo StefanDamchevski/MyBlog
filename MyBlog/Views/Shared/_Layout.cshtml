@@ -21,6 +21,16 @@
             <a asp-controller="Blog" asp-action="ModifyOverview" class="nav-link">Modify Posts</a>
             <a asp-controller="Info" asp-action="ContactUs" class="nav-link">Contact</a>
             <a asp-controller="Info" asp-action="AboutUs" class="nav-link">About</a>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="/" class="nav-link">@User.Identity.Name</a>
+                <a href="/" class="nav-link">Sign Out</a>
+            }
+            else
+            {
+                <a asp-controller="Auth" asp-action="SignIn" class="nav-link">Sign In</a>
+            }
             <div class="search-bar" id="searchBar">
                 <form asp-controller="Blog" asp-action="Overview">
                     <div class="search-form">

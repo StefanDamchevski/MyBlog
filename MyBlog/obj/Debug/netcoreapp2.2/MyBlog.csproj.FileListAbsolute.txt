@@ -77,3 +77,4 @@ D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.csproj.CopyComplete
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.dll
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.pdb
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.genruntimeconfig.cache
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Auth\SignIn.cshtml.g.cs

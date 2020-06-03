@@ -670,6 +670,8 @@
       },
       "MyBlog.Service/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Cookies": "2.2.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "MyBlog.Repository": "1.0.0"
         },
         "runtime": {
