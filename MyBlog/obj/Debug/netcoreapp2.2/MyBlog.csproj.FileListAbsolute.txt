@@ -61,6 +61,8 @@ D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.AssemblyInfo.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.TagHelpers.input.cache
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.TagHelpers.output.cache
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.RazorCoreGenerate.cache
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Auth\SignIn.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Auth\SignUp.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Blog\Create.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Blog\Details.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Blog\Modify.cshtml.g.cs
@@ -70,6 +72,8 @@ D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Info\AboutUs.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Info\ContactUs.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\User\ModifyUser.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\User\ModifyUsersOverview.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.RazorTargetAssemblyInfo.cache
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.RazorTargetAssemblyInfo.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.Views.pdb
@@ -77,4 +81,3 @@ D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.csproj.CopyComplete
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.dll
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.pdb
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.genruntimeconfig.cache
-D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Auth\SignIn.cshtml.g.cs

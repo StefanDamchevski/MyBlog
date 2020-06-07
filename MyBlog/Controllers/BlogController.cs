@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyBlog.Helpers;
 using MyBlog.Service.Interfaces;
 using MyBlog.ViewModels;
@@ -6,6 +7,7 @@ using System.Linq;
 
 namespace MyBlog.Controllers
 {
+    [Authorize]
     public class BlogController : Controller
     {
         private IBlogService BlogService { get; set; }
@@ -13,6 +15,7 @@ namespace MyBlog.Controllers
         {
             BlogService = blogService;
         }
+        [AllowAnonymous]
         public IActionResult Overview(string title)
         {
             var blogs = BlogService.GetByTitle(title);
@@ -23,13 +26,13 @@ namespace MyBlog.Controllers
 
             return View(overviewModels);
         }
+        [AllowAnonymous]
         public IActionResult Details(int id)
         {
             var currentBlog = BlogService.GetBlogDetails(id);
             var model = ModelConverter.ConvertToDetailsModel(currentBlog);
             return View(model);
         }
-
         public IActionResult Create()
         {
             var blog = new BlogCreateModel();

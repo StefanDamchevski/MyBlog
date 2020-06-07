@@ -1,17 +1,19 @@
-﻿@model MyBlog.ViewModels.SignInModel;
+﻿@model MyBlog.ViewModels.ModifyUserModel;
 
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper * , Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     Layout = "_Layout";
-    ViewBag.PageName = "Sign In";
+    ViewBag.PageName = "Modify";
 }
 
-<h1 style="text-align: center;">Sign In</h1>
+<h1>Modify User</h1>
+<hr />
 <div class="row">
     <div class="col-md-6">
-        <form asp-action="Modify" asp-route-returnUrl="@Context.Request.Query["returnUrl"]" method="post">
+        <form asp-action="ModifyUser">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Username" class="control-label"></label>
                 <input asp-for="Username" class="form-control" />
@@ -23,8 +25,18 @@
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Sign In" class="btn btn-primary" />
+                <label asp-for="RepeatPassword" class="control-label"></label>
+                <input asp-for="RepeatPassword" class="form-control" />
+                <span asp-validation-for="RepeatPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
+</div>
+
+<div>
+    <a asp-controller="User" asp-action="ModifyUsers">Back to List</a>
 </div>

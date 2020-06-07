@@ -70,5 +70,32 @@ namespace MyBlog.Helpers
                 DateCreated = blogModify.DateCreated,
             };
         }
+        public static ModifyUsersOverviewModel ConvertToModifyUsersOverviewModel(User user)
+        {
+            return new ModifyUsersOverviewModel
+            {
+                Id = user.Id,
+                Username = user.Username,
+            };
+        }
+        public static ModifyUserModel ConvertToModifyUserModel(User user)
+        {
+            return new ModifyUserModel
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Password = user.Password,
+                RepeatPassword = user.Password,
+            };
+        }
+        public static User ConvertFromModifyUserModel(ModifyUserModel modifyUserModel)
+        {
+            return new User
+            {
+                Id = modifyUserModel.Id,
+                Username = modifyUserModel.Username,
+                Password = modifyUserModel.Password,
+            };
+        }
     }
 }

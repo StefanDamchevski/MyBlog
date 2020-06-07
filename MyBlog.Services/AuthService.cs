@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using MyBlog.Data;
 using MyBlog.Repository.Interfaces;
+using MyBlog.Service.Dto;
 using MyBlog.Service.Interfaces;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -16,9 +18,11 @@ namespace MyBlog.Service
         {
             UserRepository = userRepository;
         }
-        public async Task<bool> SignIn(string username, string password, HttpContext httpContext)
+        public async Task<SignUpInResponse> SignIn(string username, string password, HttpContext httpContext)
         {
             var user = UserRepository.GetByUsername(username);
+            var response = new SignUpInResponse();
+
             if (user != null && user.Password == password)
             {
                 var claims = new List<Claim>
@@ -32,11 +36,44 @@ namespace MyBlog.Service
 
                 await httpContext.SignInAsync(principal);
 
-                return true;
+                response.IsSuccessful = true;
+                return response;
             }
             else
             {
-                return false;
+                response.IsSuccessful = false;
+                response.Message = "Username or password is incorrect";
+                return response;
+            }
+        }
+
+        public async Task SignOut(HttpContext httpContext)
+        {
+             await httpContext.SignOutAsync();
+        }
+
+        public SignUpInResponse Add(string username, string password)
+        {
+            var user = UserRepository.GetByUsername(username);
+            var response = new SignUpInResponse();
+
+            if(user == null)
+            {
+                var newUser = new User()
+                {
+                    Username = username,
+                    Password = password,
+                };
+
+                UserRepository.Add(newUser);
+                response.IsSuccessful = true;
+                return response;
+            }
+            else
+            {
+                response.IsSuccessful = false;
+                response.Message = $"Username {username} already exists";
+                return response;
             }
         }
     }

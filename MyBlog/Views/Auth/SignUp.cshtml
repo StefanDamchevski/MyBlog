@@ -1,0 +1,27 @@
+﻿@model MyBlog.ViewModels.SignUpModel;
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.PageName = "Sign Up";
+}
+
+<h2>Please enter your information</h2>
+<form asp-controller="Auth" asp-action="SignUp" method="post" class="col-md-6">
+    <div asp-validation-summary="All" class="form-validation text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Username" class="control-label">Username</label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label">Password</label>
+        <input asp-for="Password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RepeatPassword" class="control-label">Repeat Password</label>
+        <input asp-for="RepeatPassword" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Sign Up" class="btn btn-primary" />
+    </div>
+</form>

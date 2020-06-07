@@ -56,6 +56,7 @@ namespace MyBlog
             services.AddTransient<IBlogService, BlogService>();
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +76,7 @@ namespace MyBlog
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
             app.UseAuthentication();
 
             app.UseMvc(routes =>

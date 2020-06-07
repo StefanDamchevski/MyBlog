@@ -18,18 +18,20 @@
         </div>
         <div class="nav-bar" id="navBar">
             <a asp-controller="Blog" asp-action="Overview" class="nav-link">Home</a>
-            <a asp-controller="Blog" asp-action="ModifyOverview" class="nav-link">Modify Posts</a>
             <a asp-controller="Info" asp-action="ContactUs" class="nav-link">Contact</a>
             <a asp-controller="Info" asp-action="AboutUs" class="nav-link">About</a>
 
             @if (User.Identity.IsAuthenticated)
             {
+                <a asp-controller="Blog" asp-action="ModifyOverview" class="nav-link">Modify Posts</a>
                 <a href="/" class="nav-link">@User.Identity.Name</a>
-                <a href="/" class="nav-link">Sign Out</a>
+                <a asp-controller="Auth" asp-action="SignOut" class="nav-link">Sign Out</a>
+                <a asp-controller="User" asp-action="ModifyUsersOverview" class="nav-link">Modify Users</a>
             }
             else
             {
                 <a asp-controller="Auth" asp-action="SignIn" class="nav-link">Sign In</a>
+                <a asp-controller="Auth" asp-action="SignUp" class="nav-link">Sign Up</a>
             }
             <div class="search-bar" id="searchBar">
                 <form asp-controller="Blog" asp-action="Overview">
