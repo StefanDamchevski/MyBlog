@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyBlog.Data
 {
@@ -12,5 +9,6 @@ namespace MyBlog.Data
         }
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<BlogComment> BlogComments { get; set; }
     }
 }

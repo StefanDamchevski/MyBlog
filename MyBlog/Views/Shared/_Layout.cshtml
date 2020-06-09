@@ -23,10 +23,13 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                <a asp-controller="Blog" asp-action="ModifyOverview" class="nav-link">Modify Posts</a>
+                @if (Convert.ToBoolean(User.FindFirst("IsAdmin").Value))
+                {
+                    <a asp-controller="Blog" asp-action="ModifyOverview" class="nav-link">Modify Posts</a>
+                    <a asp-controller="User" asp-action="ModifyUsersOverview" class="nav-link">Modify Users</a>
+                }
                 <a href="/" class="nav-link">@User.Identity.Name</a>
                 <a asp-controller="Auth" asp-action="SignOut" class="nav-link">Sign Out</a>
-                <a asp-controller="User" asp-action="ModifyUsersOverview" class="nav-link">Modify Users</a>
             }
             else
             {

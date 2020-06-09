@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyBlog.Data;
 
 namespace MyBlog.Data.Migrations
 {
     [DbContext(typeof(MyBlogsContext))]
-    partial class MyBlogsContextModelSnapshot : ModelSnapshot
+    [Migration("20200609171839_addIsAdmin")]
+    partial class addIsAdmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,30 +46,6 @@ namespace MyBlog.Data.Migrations
                     b.ToTable("Blogs");
                 });
 
-            modelBuilder.Entity("MyBlog.Data.BlogComment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BlogId");
-
-                    b.Property<string>("Comment")
-                        .IsRequired();
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BlogId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("BlogComments");
-                });
-
             modelBuilder.Entity("MyBlog.Data.User", b =>
                 {
                     b.Property<int>("Id")
@@ -85,19 +63,6 @@ namespace MyBlog.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("MyBlog.Data.BlogComment", b =>
-                {
-                    b.HasOne("MyBlog.Data.Blog", "Blog")
-                        .WithMany("BlogComments")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("MyBlog.Data.User", "User")
-                        .WithMany("BlogComments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace MyBlog.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "IsAdmin")]
     public class BlogController : Controller
     {
         private IBlogService BlogService { get; set; }

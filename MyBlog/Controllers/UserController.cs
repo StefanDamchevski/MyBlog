@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyBlog.Data;
 using MyBlog.Helpers;
 using MyBlog.Service.Interfaces;
 using MyBlog.ViewModels;
+using System.Linq;
 
 namespace MyBlog.Controllers
 {
@@ -43,8 +40,16 @@ namespace MyBlog.Controllers
             if (ModelState.IsValid)
             {
                 var user = ModelConverter.ConvertFromModifyUserModel(modifyUserModel);
-                UserService.UpdateUser(user);
-                return RedirectToAction("ModifyUsersOverview");
+                var response = UserService.UpdateUser(user);
+                if (response.IsSuccessful)
+                {
+                    return RedirectToAction("ModifyUsersOverview");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, response.Message);
+                    return View(modifyUserModel);
+                }
             }
             else
             {

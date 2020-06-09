@@ -1,4 +1,5 @@
-﻿using MyBlog.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using MyBlog.Data;
 using MyBlog.Repository.Interfaces;
 using System.Collections.Generic;
 using System.Linq;

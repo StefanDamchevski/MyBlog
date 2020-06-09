@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,5 +17,6 @@ namespace MyBlog.Data
         [Column(TypeName = "datetime")]
         public DateTime? DateCreated { get; set; }
         public int Views { get; set; }
+        public List<BlogComment> BlogComments { get; set; }
     }
 }

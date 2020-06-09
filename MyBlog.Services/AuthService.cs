@@ -23,12 +23,13 @@ namespace MyBlog.Service
             var user = UserRepository.GetByUsername(username);
             var response = new SignUpInResponse();
 
-            if (user != null && user.Password == password)
+            if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))
             {
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Username),
                     new Claim(ClaimTypes.Name, user.Username),
+                    new Claim("IsAdmin", user.IsAdmin.ToString()),
                 };
 
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -62,7 +63,7 @@ namespace MyBlog.Service
                 var newUser = new User()
                 {
                     Username = username,
-                    Password = password,
+                    Password = BCrypt.Net.BCrypt.HashPassword(password),
                 };
 
                 UserRepository.Add(newUser);

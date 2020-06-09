@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MyBlog.ViewModels
 {
@@ -10,5 +11,6 @@ namespace MyBlog.ViewModels
         public string ImageUrl { get; set; }
         public DateTime? DateCreated { get; set; }
         public int Views { get; set; }
+        public List<BlogCommentModel> BlogComments { get; set; }
     }
 }

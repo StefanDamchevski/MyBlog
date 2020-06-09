@@ -1,8 +1,9 @@
 ﻿using MyBlog.Data;
-using MyBlog.Repository;
 using MyBlog.Repository.Interfaces;
+using MyBlog.Service.Dto;
 using MyBlog.Service.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MyBlog.Service
 {
@@ -28,9 +29,33 @@ namespace MyBlog.Service
             return UserRepository.GetById(id);
         }
 
-        public void UpdateUser(User user)
+        public SignUpInResponse UpdateUser(User updatedUser)
         {
-            UserRepository.Update(user);
+            var users = UserRepository.GetAll()
+                        .Where(x => x.Id != updatedUser.Id && x.Username != updatedUser.Username)
+                        .ToList();
+
+            var response = new SignUpInResponse();
+
+            var user = UserRepository.GetById(updatedUser.Id);
+
+            if (!users.Any())
+            {
+                user.Username = updatedUser.Username;
+                user.Password = BCrypt.Net.BCrypt.HashPassword(updatedUser.Password);
+
+                UserRepository.Update(user);
+                response.IsSuccessful = true;
+                return response;
+            }
+            else
+            {
+                response.IsSuccessful = false;
+                response.Message = $"Username {updatedUser.Username} already exists";
+                return response;
+            }
+
+            
         }
     }
 }

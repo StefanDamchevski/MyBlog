@@ -1,4 +1,5 @@
-﻿using MyBlog.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using MyBlog.Data;
 using MyBlog.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,10 @@ namespace MyBlog.Repository
         }
         public Blog GetById(int id)
         {
-            return Context.Blogs.FirstOrDefault(x => x.Id == id);
+            return Context.Blogs
+                .Include(x => x.BlogComments)
+                    .ThenInclude(x => x.User)
+                .FirstOrDefault(x => x.Id == id);
         }
         public List<Blog> GetByTitle(string title)
         {

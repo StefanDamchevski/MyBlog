@@ -52,6 +52,12 @@ namespace MyBlog
                 options.LoginPath = "/auth/signin";
             });
 
+            services.AddAuthorization(
+                options => options
+                .AddPolicy("IsAdmin", policy => policy
+                .RequireClaim("IsAdmin", "True"))
+            );
+
             services.AddTransient<IBlogRepository, BlogRepository>();
             services.AddTransient<IBlogService, BlogService>();
             services.AddTransient<IAuthService, AuthService>();

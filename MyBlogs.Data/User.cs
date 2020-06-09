@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace MyBlog.Data
 {
@@ -12,5 +10,8 @@ namespace MyBlog.Data
         public string Username { get; set; }
         [Required]
         public string Password { get; set; }
+        [Required]
+        public bool IsAdmin { get; set; }
+        public List<BlogComment> BlogComments { get; set; }
     }
 }

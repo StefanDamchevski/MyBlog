@@ -17,3 +17,8 @@
         </div>
     </div>
 
+    <h1>Comments</h1>
+@foreach (var comment  in Model.BlogComments)
+{
+    <p>@comment.Comment - @comment.DateCreated - @comment.Username</p>
+}

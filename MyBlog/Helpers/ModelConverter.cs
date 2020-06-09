@@ -1,6 +1,7 @@
 ﻿using MyBlog.Data;
 using MyBlog.ViewModels;
 using System;
+using System.Linq;
 
 namespace MyBlog.Helpers
 {
@@ -27,6 +28,18 @@ namespace MyBlog.Helpers
                 Description = blog.Description,
                 Views = blog.Views,
                 DateCreated = blog.DateCreated,
+                BlogComments = blog.BlogComments
+                                .Select(x => ConvertToBlogCommentModel(x))
+                                .ToList(),
+            };
+        }
+        public static BlogCommentModel ConvertToBlogCommentModel(BlogComment blogComment)
+        {
+            return new BlogCommentModel
+            {
+                Comment = blogComment.Comment,
+                DateCreated = blogComment.DateCreated,
+                Username = blogComment.User.Username,
             };
         }
         public static Blog ConvertFromBlogCreateModel(BlogCreateModel blogCreate)

@@ -1,7 +1,6 @@
 ﻿using MyBlog.Data;
-using System;
+using MyBlog.Service.Dto;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MyBlog.Service.Interfaces
 {
@@ -10,6 +9,6 @@ namespace MyBlog.Service.Interfaces
         List<User> GetAll();
         void Delete(int id);
         User GetById(int id);
-        void UpdateUser(User user);
+        SignUpInResponse UpdateUser(User user);
     }
 }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lyzEbPOuINKoZs7BQZT6nJAhRZGk/kxs8wNhTjWkMDWDhjUvUKbYrmo7BXl+eEPc5nrE799FZc1P96PHNMIT6Q==",
+  "dgSpecHash": "fiZJlZ4pOz5nd1oRvRVWQRGbeDLIWwKENKdheUA1wqbnu12xJRGzv5r1qKW8t1XrOlcvj5kAG7LZbl6wvkN8YQ==",
   "success": true,
   "projectFilePath": "D:\\Academy\\MVC\\MyBlog\\MyBlog\\MyBlog.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Stefan\\.nuget\\packages\\bcrypt.net-next\\4.0.0\\bcrypt.net-next.4.0.0.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
@@ -248,7 +249,7 @@
     "C:\\Users\\Stefan\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\system.linq.parallel\\4.3.0\\system.linq.parallel.4.3.0.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\system.linq.queryable\\4.0.1\\system.linq.queryable.4.0.1.nupkg.sha512",
-    "C:\\Users\\Stefan\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\Stefan\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\system.net.websockets.websocketprotocol\\4.5.1\\system.net.websockets.websocketprotocol.4.5.1.nupkg.sha512",
