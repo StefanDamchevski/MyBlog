@@ -1,0 +1,42 @@
+﻿@model List<MyBlog.ViewModels.ModifyCommentOverviewModel>;
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+    ViewBag.PageName = "ModifyCommentOverview";
+}
+
+<h1>Modify Comments</h1>
+<div class="list-of-blogs">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Posted By</th>
+                <th>Action</th>
+                <th>Approve Posts</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comment in @Model)
+            {
+                <tr>
+                    <td>@comment.Username</td>
+                    <td>
+                        <a asp-controller="BlogComment" asp-action="Modify" asp-route-id="@comment.Id">Modify</a> | 
+                        <a asp-controller="BlogComment" asp-action="Delete" asp-route-id="@comment.Id" onclick="return confirm('Are you sure you want to delete this comment?')">Delete</a>
+                    </td>
+                    <td>
+                        @if (!comment.IsApproved)
+                        {
+                            <a asp-controller="BlogComment" asp-action="Apporve" asp-route-id="@comment.Id">Approve</a>
+                        }
+                        else
+                        {
+                            <span>Approved</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

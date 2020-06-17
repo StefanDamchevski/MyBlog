@@ -29,21 +29,19 @@ namespace MyBlog.Service
             return UserRepository.GetById(id);
         }
 
-        public SignUpInResponse UpdateUser(User updatedUser)
+        public Response UpdateUser(int id, string username)
         {
-            var users = UserRepository.GetAll()
-                        .Where(x => x.Id != updatedUser.Id && x.Username != updatedUser.Username)
+            List<User> users = UserRepository.GetAll()
+                        .Where(x => x.Id != id && x.Username == username)
                         .ToList();
 
-            var response = new SignUpInResponse();
+            Response response = new Response();
 
-            var user = UserRepository.GetById(updatedUser.Id);
+            User user = UserRepository.GetById(id);
 
             if (!users.Any())
-            {
-                user.Username = updatedUser.Username;
-                user.Password = BCrypt.Net.BCrypt.HashPassword(updatedUser.Password);
-
+            {    
+                user.Username = username;
                 UserRepository.Update(user);
                 response.IsSuccessful = true;
                 return response;
@@ -51,11 +49,56 @@ namespace MyBlog.Service
             else
             {
                 response.IsSuccessful = false;
-                response.Message = $"Username {updatedUser.Username} already exists";
+                response.Message = $"Username {username} already exists";
                 return response;
             }
+        }
 
-            
+        public Response Create(string username, string password)
+        {
+            User user = UserRepository.GetByUsername(username);
+            Response response = new Response();
+            if(user == null)
+            {
+                User newUser = new User()
+                {
+                    Username = username,
+                    Password = BCrypt.Net.BCrypt.HashPassword(password),
+                    IsAdmin = false,
+                };
+
+                UserRepository.Add(newUser);
+
+                response.IsSuccessful = true;
+                return response;
+            }
+            else
+            {
+                response.IsSuccessful = false;
+                response.Message = $"Username {username} already exists";
+                return response;
+            }
+        }
+
+        public void GiveAdminRole(int id)
+        {
+            User user = UserRepository.GetById(id);
+            user.IsAdmin = true;
+            UserRepository.Update(user);
+        }
+
+        public void RemoveAdminRole(int id)
+        {
+            User user = UserRepository.GetById(id);
+            user.IsAdmin = false;
+            UserRepository.Update(user);
+        }
+
+        public void ChangePassword(int id, string password)
+        {
+            User user = UserRepository.GetById(id);
+            user.Password = BCrypt.Net.BCrypt.HashPassword(password);
+            UserRepository.Update(user);
         }
     }
 }

@@ -1,12 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MyBlog.Custom;
 using MyBlog.Data;
 using MyBlog.Helpers;
+using MyBlog.Service.Dto;
 using MyBlog.Service.Interfaces;
 using MyBlog.ViewModels;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MyBlog.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         public IUserService UserService { get; set; }
@@ -14,10 +20,11 @@ namespace MyBlog.Controllers
         {
             UserService = userService;
         }
+        [Authorize(Policy = "IsAdmin")]
         public IActionResult ModifyUsersOverview()
         {
-            var users = UserService.GetAll();
-            var model = users
+            List<User> users = UserService.GetAll();
+            List<ModifyUsersOverviewModel> model = users
                 .Select(x => ModelConverter.ConvertToModifyUsersOverviewModel(x))
                 .ToList();
 
@@ -25,36 +32,145 @@ namespace MyBlog.Controllers
         }
         public IActionResult Delete(int id)
         {
-            UserService.Delete(id);
-            return RedirectToAction("ModifyUsersOverview");
-        }
-        public IActionResult ModifyUser(int id)
-        {
-            User user = UserService.GetById(id);
-            var model = ModelConverter.ConvertToModifyUserModel(user);
-            return View(model);
-        }
-        [HttpPost]
-        public IActionResult ModifyUser(ModifyUserModel modifyUserModel)
-        {
-            if (ModelState.IsValid)
+            if(!AuthorizeService.AuthorizeUser(User, id))
             {
-                var user = ModelConverter.ConvertFromModifyUserModel(modifyUserModel);
-                var response = UserService.UpdateUser(user);
-                if (response.IsSuccessful)
-                {
-                    return RedirectToAction("ModifyUsersOverview");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, response.Message);
-                    return View(modifyUserModel);
-                }
+                return RedirectToAction("AccesssDenied", "Auth");
             }
             else
             {
-                return View(modifyUserModel);
+                UserService.Delete(id);
             }
+            if (Convert.ToInt32(User.FindFirst("Id").Value) == id)
+            {
+                return RedirectToAction("SignOut", "Auth");
+            }
+            else
+            {
+                return RedirectToAction("Success");
+            }
+        }
+        public IActionResult ModifyUser(int id)
+        {
+            if (!AuthorizeService.AuthorizeUser(User, id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                User user = UserService.GetById(id);
+                ModifyUserModel model = ModelConverter.ConvertToModifyUserModel(user);
+                return View(model);
+            }
+        }
+        [HttpPost]
+        public IActionResult ModifyUser(ModifyUserModel model)
+        {
+            if (!AuthorizeService.AuthorizeUser(User, model.Id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    Response response = UserService.UpdateUser(model.Id, model.Username);
+                    if (response.IsSuccessful)
+                    {
+                        return RedirectToAction("Success");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, response.Message);
+                        return View(model);
+                    }
+                }
+                else
+                {
+                    return View(model);
+                }
+            }
+        }
+        public IActionResult ChangePassword(int id)
+        {
+            if (!AuthorizeService.AuthorizeUser(User, id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                ChangePasswordModel model = new ChangePasswordModel();
+                model.Id = id;
+                return View(model);
+            }
+        }
+        [HttpPost]
+        public IActionResult ChangePassword(ChangePasswordModel model)
+        {
+            if (!AuthorizeService.AuthorizeUser(User, model.Id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    UserService.ChangePassword(model.Id, model.Password);
+                    return RedirectToAction("Success");
+                }
+                else
+                {
+                    return View(model);
+                }
+            }
+        }
+        public IActionResult Details(int id)
+        {
+            if(!AuthorizeService.AuthorizeUser(User, id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                User user = UserService.GetById(id);
+                UserDetailsModel model = ModelConverter.ConvertToUserDetailsModel(user);
+                return View(model);
+            }
+        }
+        public IActionResult GiveAdminRole(int id)
+        {
+            if(!AuthorizeService.AuthorizeUser(User, id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                UserService.GiveAdminRole(id);
+                return RedirectToAction("ModifyUsersOverview");
+            }
+        }
+        public IActionResult RemoveAdminRole(int id)
+        {
+            if (!AuthorizeService.AuthorizeUser(User, id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                UserService.RemoveAdminRole(id);
+            }
+            if(Convert.ToInt32(User.FindFirst("Id").Value) == id)
+            {
+                return RedirectToAction("SignOut", "Auth");
+            }
+            else
+            {
+                return RedirectToAction("ModifyUsersOverview");
+            }
+        }
+
+        public IActionResult Success()
+        {
+            return View();
         }
     }
 }

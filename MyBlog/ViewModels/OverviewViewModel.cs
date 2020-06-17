@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MyBlog.Service.Dto;
 
 namespace MyBlog.ViewModels
 {
@@ -12,5 +9,7 @@ namespace MyBlog.ViewModels
         public string ImageUrl { get; set; }
         public int DaysCreated { get; set; }
         public int Views { get; set; }
+        public bool IsApproved { get; set; }
+        public SidebarData SidebarData { get; set; }
     }
 }

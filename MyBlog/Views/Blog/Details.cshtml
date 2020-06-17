@@ -1,24 +1,51 @@
 ﻿@model MyBlog.ViewModels.BlogDetailsModel;
 
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @{
     Layout = "_Layout";
     ViewBag.PageName = "Blog Details";
 }
-  
-    <div class="blog-details">
-        <img class="blog-img" src="@Model.ImageUrl" />
-        <div class="blog-title">@Model.Title</div>
-        <div class="blog-desc">
-            <p>@Model.Description</p>
-        </div>
-        <div class="other-info">
-            <div class="date-created">@Model.DateCreated</div>
-            <div class="blog-views">@Model.Views Views</div>
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="blog-details">
+                <img class="blog-img" src="@Model.ImageUrl" />
+                <div class="blog-title">@Model.Title</div>
+                <div class="blog-desc">
+                    <p>@Model.Description</p>
+                </div>
+                <div class="other-info">
+                    <div class="date-created">@Model.DateCreated?.ToString("yyyy/MM/dd")</div>
+                    <div class="blog-views">@Model.Views Views</div>
+                </div>
+            </div>
+
+            <h1>Comments</h1>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form asp-controller="BlogComment" asp-action="Add" method="post" onsubmit="return ValidateCommentField()">
+                    <input id="blogId" name="blogId" value="@Model.Id" hidden />
+                    <div class="form-group">
+                        <textarea id="comment" name="comment" class="form-control"> </textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Comment</button>
+                </form>
+            }
+
+            @foreach (var comment in Model.BlogComments)
+            {
+                if (comment.IsApproved)
+                {
+                    <p>@comment.Comment - @comment.DateCreated.ToString("yyyy/MM/dd") - @comment.Username</p>
+                }
+            }
+            </div>
+        <div class="col-md-3">
+            <partial name="SidebarPartial" for="SidebarData" />
         </div>
     </div>
-
-    <h1>Comments</h1>
-@foreach (var comment  in Model.BlogComments)
-{
-    <p>@comment.Comment - @comment.DateCreated - @comment.Username</p>
+@section Scripts{
+    <script src="~/js/comments.js"></script>
 }

@@ -1,0 +1,36 @@
+﻿@model MyBlog.Service.Dto.SidebarData;
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+    <div style="width:100%; background-color:#343a40; color:white; padding:20px">
+        <h2>Top Blogs</h2>
+        @foreach (var blog in Model.TopBlogs)
+        {
+            const int maxLenght = 17;
+            if (blog.IsApproved)
+            {
+                <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id" style="color:white; text-decoration:none">
+                    <div style="padding:5px; background-color:#a8a8a8;  margin:5px;">
+                        <p>Title: @blog.Title.PadRight(maxLenght).Substring(0,maxLenght)..</p>
+                        <p>Date created: @blog.DateCreated?.ToString("yyyy-MM-dd")</p>
+                        <p>Views: @blog.Views</p>
+                    </div>
+                </a>
+            }
+        }
+        <h2>Recent Blogs</h2>
+        @foreach (var blog in Model.RecentBlogs)
+        {
+            const int maxLenght = 17;
+            if (blog.IsApproved)
+            {
+                <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id" style="color:white; text-decoration:none">
+                    <div style="padding:5px; background-color:#a8a8a8;  margin:5px;">
+                        <p>Title: @blog.Title.PadRight(maxLenght).Substring(0, maxLenght)..</p>
+                        <p>Date created: @blog.DateCreated?.ToString("yyyy-MM-dd")</p>
+                        <p>Views: @blog.Views</p>
+                    </div>
+                </a>
+            }
+        }
+    </div>

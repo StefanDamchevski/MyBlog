@@ -18,5 +18,7 @@ namespace MyBlog.Data
         public DateTime? DateCreated { get; set; }
         public int Views { get; set; }
         public List<BlogComment> BlogComments { get; set; }
+        [Required]
+        public bool IsApproved { get; set; }
     }
 }

@@ -14,26 +14,30 @@ namespace MyBlog.Service
     public class AuthService : IAuthService
     {
         private IUserRepository UserRepository { get; set; }
-        public AuthService(IUserRepository userRepository)
+        public IUserService UserService { get; set; }
+
+        public AuthService(IUserRepository userRepository, IUserService userService)
         {
             UserRepository = userRepository;
+            UserService = userService;
         }
-        public async Task<SignUpInResponse> SignIn(string username, string password, HttpContext httpContext)
+        public async Task<Response> SignIn(string username, string password, HttpContext httpContext)
         {
-            var user = UserRepository.GetByUsername(username);
-            var response = new SignUpInResponse();
+            User user = UserRepository.GetByUsername(username);
+            Response response = new Response();
 
             if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))
             {
-                var claims = new List<Claim>
+                List<Claim> claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Username),
                     new Claim(ClaimTypes.Name, user.Username),
                     new Claim("IsAdmin", user.IsAdmin.ToString()),
+                    new Claim("Id", user.Id.ToString()),
                 };
 
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
+                ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
                 await httpContext.SignInAsync(principal);
 
@@ -53,29 +57,10 @@ namespace MyBlog.Service
              await httpContext.SignOutAsync();
         }
 
-        public SignUpInResponse Add(string username, string password)
+        public Response Add(string username, string password)
         {
-            var user = UserRepository.GetByUsername(username);
-            var response = new SignUpInResponse();
-
-            if(user == null)
-            {
-                var newUser = new User()
-                {
-                    Username = username,
-                    Password = BCrypt.Net.BCrypt.HashPassword(password),
-                };
-
-                UserRepository.Add(newUser);
-                response.IsSuccessful = true;
-                return response;
-            }
-            else
-            {
-                response.IsSuccessful = false;
-                response.Message = $"Username {username} already exists";
-                return response;
-            }
+            Response response = UserService.Create(username, password);
+            return response;
         }
     }
 }

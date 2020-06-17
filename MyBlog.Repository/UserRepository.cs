@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyBlog.Data;
+﻿using MyBlog.Data;
 using MyBlog.Repository.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +30,7 @@ namespace MyBlog.Repository
 
         public void Delete(int id)
         {
-            var user = new User
+            User user = new User()
             {
                 Id = id,
             };

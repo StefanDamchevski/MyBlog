@@ -17,6 +17,7 @@
                 <tr>
                     <th>Blog</th>
                     <th>Action</th>
+                    <th>Approve Posts</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,16 @@
                         <td>
                             <a asp-controller="Blog" asp-action="Delete" asp-route-id="@blog.Id" onclick="return confirm('Are you sure you want to delete this post?')">Delete</a> |
                             <a asp-controller="Blog" asp-action="Modify" asp-route-id="@blog.Id">Modify</a>
+                        </td>
+                        <td>
+                            @if (!blog.IsApproved)
+                            {
+                                <a asp-controller="Blog" asp-action="Apporve" asp-route-id="@blog.Id">Approve</a>
+                            }
+                            else
+                            {
+                                <span>Approved</span>
+                            }
                         </td>
                     </tr>
                 }

@@ -1,4 +1,4 @@
-﻿@model List<MyBlog.ViewModels.OverviewViewModel>;
+﻿@model MyBlog.ViewModels.BlogOverviewData;
 
 @addTagHelper * , Microsoft.AspNetCore.Mvc.TagHelpers
 
@@ -8,32 +8,41 @@
     
 }
 
-@if(@Model.Count == 0)
+@if(@Model.BlogsOverview.Count == 0)
 {
     <div class="not-found">
         <p>No results found</p>
     </div>
 }
-
 <div class="row">
-    @foreach (var blog in @Model)
-    {
-        const int maxLenght = 50;
-        <div class="col-md-4">
-            <div class="card">
-                <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">
-                    <img src="@blog.ImageUrl" class="card-img-top" height="300" width="120">
-                </a>
-                <div class="card-body">
-                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id" style="text-decoration:none;">
-                        <h5 class="card-title">@blog.Title.PadRight(maxLenght).Substring(0,maxLenght)...</h5>
-                    </a>
-                    <div class="card-text">
-                        <p>Created @blog.DaysCreated days ago</p>
-                        <p>@blog.Views Views</p>
+    <div class="col-md-9">
+        <div class="row">
+            @foreach (var blog in @Model.BlogsOverview)
+            {
+                if (blog.IsApproved)
+                {
+                    const int maxLenght = 50;
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">
+                                <img src="@blog.ImageUrl" class="card-img-top" height="300" width="120">
+                            </a>
+                            <div class="card-body">
+                                <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id" style="text-decoration:none;">
+                                    <h5 class="card-title">@blog.Title.PadRight(maxLenght).Substring(0, maxLenght)...</h5>
+                                </a>
+                                <div class="card-text">
+                                    <p>Created @blog.DaysCreated days ago</p>
+                                    <p>@blog.Views Views</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                }
+            }
         </div>
-    }
+    </div>
+    <div class="col-md-3">
+        <partial name="SidebarPartial" for="SidebarData" />
+    </div>
 </div>

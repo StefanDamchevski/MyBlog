@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyBlog.Service.Dto;
+using System;
 using System.Collections.Generic;
 
 namespace MyBlog.ViewModels
@@ -12,5 +13,6 @@ namespace MyBlog.ViewModels
         public DateTime? DateCreated { get; set; }
         public int Views { get; set; }
         public List<BlogCommentModel> BlogComments { get; set; }
+        public SidebarData SidebarData { get; set; }
     }
 }

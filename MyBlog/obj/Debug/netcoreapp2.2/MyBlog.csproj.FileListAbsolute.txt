@@ -81,3 +81,10 @@ D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.csproj.CopyComplete
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.dll
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.pdb
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\MyBlog.genruntimeconfig.cache
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Auth\AccessDenied.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\User\Success.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\User\Details.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\User\ChangePassword.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\BlogComment\ModifyCommentOverview.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\BlogComment\Modify.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Shared\SidebarPartial.cshtml.g.cs

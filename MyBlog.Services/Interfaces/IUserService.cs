@@ -9,6 +9,10 @@ namespace MyBlog.Service.Interfaces
         List<User> GetAll();
         void Delete(int id);
         User GetById(int id);
-        SignUpInResponse UpdateUser(User user);
+        Response UpdateUser(int id, string username);
+        Response Create(string username, string password);
+        void GiveAdminRole(int id);
+        void RemoveAdminRole(int id);
+        void ChangePassword(int id, string password);
     }
 }

@@ -1,7 +1,6 @@
 ﻿using MyBlog.Data;
-using System;
+using MyBlog.Service.Dto;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MyBlog.Service.Interfaces
 {
@@ -14,5 +13,7 @@ namespace MyBlog.Service.Interfaces
         Blog GetBlogDetails(int id);
         void Delete(int id);
         void UpdateBlog(Blog blog);
+        void Approve(int id);
+        SidebarData GetSidebarData();
     }
 }

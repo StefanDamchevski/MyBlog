@@ -33,7 +33,7 @@ namespace MyBlog.Repository
         }
         public List<Blog> GetByTitle(string title)
         {
-            var blogs = Context.Blogs.AsQueryable();
+            IQueryable<Blog> blogs = Context.Blogs.AsQueryable();
             if (!String.IsNullOrEmpty(title))
             {
                 blogs = blogs.Where(x => x.Title.Contains(title));
@@ -47,7 +47,7 @@ namespace MyBlog.Repository
         }
         public void Delete(int id)
         {
-            var blog = new Blog()
+            Blog blog = new Blog()
             {
                 Id = id,
             };

@@ -14,6 +14,7 @@
         <tr>
             <th>User</th>
             <th>Action</th>
+            <th>Manage Admin Role</th>  
         </tr>
     </thead>
     <tbody>
@@ -22,8 +23,19 @@
             <tr>
                 <td>@user.Username</td>
                 <td>
-                    <a asp-controller="User" asp-action="ModifyUser" asp-route-id="@user.Id">Modify</a> |
+                    <a asp-controller="User" asp-action="ModifyUser" asp-route-id="@user.Id">Modify</a> | 
+                    <a asp-controller="User" asp-action="ChangePassword" asp-route-id="@user.Id">Change Password</a> | 
                     <a asp-controller="User" asp-action="Delete" asp-route-id="@user.Id" onclick="return confirm('Are you sure you want to delete this user')">Delete</a>
+                </td>
+                <td>
+                    @if (!user.IsAdmin)
+                    {
+                        <a asp-controller="User" asp-action="GiveAdminRole" asp-route-id="@user.Id" onclick="return confirm('Are you sure you want to give admin role to @user.Username')">Give Admin Role</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="User" asp-action="RemoveAdminRole" asp-route-id="@user.Id" onclick="return confirm('Are you sure you want to remove admin role from @user.Username')">Remove Admin Role</a>
+                    }
                 </td>
             </tr>
         }

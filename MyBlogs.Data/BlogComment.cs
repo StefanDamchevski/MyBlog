@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace MyBlog.Data
 {
@@ -14,10 +12,12 @@ namespace MyBlog.Data
 
         [Required]
         public int BlogId { get; set; }
-        public Blog Blog { get; set; }
+        public virtual Blog Blog { get; set; }
 
         [Required]
         public int UserId { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
+        [Required]
+        public bool IsApproved { get; set; }
     }
 }

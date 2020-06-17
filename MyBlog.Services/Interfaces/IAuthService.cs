@@ -6,8 +6,8 @@ namespace MyBlog.Service.Interfaces
 {
     public interface IAuthService
     {
-        Task<SignUpInResponse> SignIn(string username, string password, HttpContext httpContext);
+        Task<Response> SignIn(string username, string password, HttpContext httpContext);
         Task SignOut(HttpContext httpContext);
-        SignUpInResponse Add(string username, string password);
+        Response Add(string username, string password);
     }
 }

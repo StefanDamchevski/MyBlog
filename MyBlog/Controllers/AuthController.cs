@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyBlog.Service.Dto;
 using MyBlog.Service.Interfaces;
 using MyBlog.ViewModels;
 using System;
@@ -15,7 +16,7 @@ namespace MyBlog.Controllers
         }
         public IActionResult SignIn()
         {
-            var model = new SignInModel();
+            SignInModel model = new SignInModel();
             return View(model);
         }
         [HttpPost]
@@ -23,7 +24,7 @@ namespace MyBlog.Controllers
         {
             if (ModelState.IsValid)
             {
-                var response = await AuthService.SignIn(signInModel.Username, signInModel.Password, HttpContext);
+                Response response = await AuthService.SignIn(signInModel.Username, signInModel.Password, HttpContext);
                 if (response.IsSuccessful)
                 {
                     if (!String.IsNullOrEmpty(returnUrl))
@@ -53,7 +54,7 @@ namespace MyBlog.Controllers
         }
         public IActionResult SignUp()
         {
-            var model = new SignUpModel();
+            SignUpModel model = new SignUpModel();
             return View(model);
         }
         [HttpPost]
@@ -61,7 +62,7 @@ namespace MyBlog.Controllers
         {
             if (ModelState.IsValid)
             {
-                var response = AuthService.Add(signUpModel.Username, signUpModel.Password);
+                Response response = AuthService.Add(signUpModel.Username, signUpModel.Password);
                 if (response.IsSuccessful)
                 {
                     return RedirectToAction("SignIn");
@@ -76,6 +77,10 @@ namespace MyBlog.Controllers
             {
                 return View(signUpModel);
             }
+        }
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace MyBlog.Helpers
                 ImageUrl = blog.ImageUrl,
                 Views = blog.Views,
                 DaysCreated = DateTime.Now.Subtract(blog.DateCreated.Value).Days,
+                IsApproved = blog.IsApproved,
             };
         }
         public static BlogDetailsModel ConvertToDetailsModel(Blog blog)
@@ -40,6 +41,7 @@ namespace MyBlog.Helpers
                 Comment = blogComment.Comment,
                 DateCreated = blogComment.DateCreated,
                 Username = blogComment.User.Username,
+                IsApproved = blogComment.IsApproved,
             };
         }
         public static Blog ConvertFromBlogCreateModel(BlogCreateModel blogCreate)
@@ -57,6 +59,7 @@ namespace MyBlog.Helpers
             {
                 Id = blog.Id,
                 Title = blog.Title,
+                IsApproved = blog.IsApproved,
             };
         }
         public static BlogModifyModel ConvertToBlogModifyModel(Blog blog)
@@ -89,6 +92,7 @@ namespace MyBlog.Helpers
             {
                 Id = user.Id,
                 Username = user.Username,
+                IsAdmin = user.IsAdmin,
             };
         }
         public static ModifyUserModel ConvertToModifyUserModel(User user)
@@ -97,17 +101,34 @@ namespace MyBlog.Helpers
             {
                 Id = user.Id,
                 Username = user.Username,
-                Password = user.Password,
-                RepeatPassword = user.Password,
+                IsAdmin = user.IsAdmin,
             };
         }
-        public static User ConvertFromModifyUserModel(ModifyUserModel modifyUserModel)
+        public static UserDetailsModel ConvertToUserDetailsModel(User user)
         {
-            return new User
+            return new UserDetailsModel
             {
-                Id = modifyUserModel.Id,
-                Username = modifyUserModel.Username,
-                Password = modifyUserModel.Password,
+                Id = user.Id,
+                Username = user.Username,
+                IsAdmin = user.IsAdmin,
+            };
+        }
+        public static ModifyCommentOverviewModel ConvertToModifyCommentOverviewModel(BlogComment blogComment)
+        {
+            return new ModifyCommentOverviewModel
+            {
+                Id = blogComment.Id,
+                Comment = blogComment.Comment,
+                Username = blogComment.User.Username,
+                IsApproved = blogComment.IsApproved,
+            };
+        }
+        public static ModifyCommentModel ConvertToModifyCommentModel(BlogComment blogComment)
+        {
+            return new ModifyCommentModel
+            {
+                Id = blogComment.Id,
+                Comment = blogComment.Comment,
             };
         }
     }

@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MyBlog.Data;
 using MyBlog.Helpers;
 using MyBlog.Service.Interfaces;
 using MyBlog.ViewModels;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MyBlog.Controllers
 {
-    [Authorize(Policy = "IsAdmin")]
+    [Authorize]
     public class BlogController : Controller
     {
         private IBlogService BlogService { get; set; }
@@ -18,38 +20,44 @@ namespace MyBlog.Controllers
         [AllowAnonymous]
         public IActionResult Overview(string title)
         {
-            var blogs = BlogService.GetByTitle(title);
+            BlogOverviewData model = new BlogOverviewData();
 
-            var overviewModels = blogs
+            model.SidebarData = BlogService.GetSidebarData();
+
+            model.BlogsOverview = BlogService.GetByTitle(title)
                 .Select(x => ModelConverter.OverviewModelConvert(x))
-                .ToList();
+                .ToList(); ;
 
-            return View(overviewModels);
+            return View(model);
         }
         [AllowAnonymous]
         public IActionResult Details(int id)
         {
-            var currentBlog = BlogService.GetBlogDetails(id);
-            var model = ModelConverter.ConvertToDetailsModel(currentBlog);
+            Blog blog = BlogService.GetBlogDetails(id);
+
+            BlogDetailsModel model = ModelConverter.ConvertToDetailsModel(blog);
+
+            model.SidebarData = BlogService.GetSidebarData();
+
             return View(model);
         }
         public IActionResult Create()
         {
-            var blog = new BlogCreateModel();
-            return View(blog);
+            BlogCreateModel model = new BlogCreateModel();
+            return View(model);
         }
         [HttpPost]
-        public IActionResult Create(BlogCreateModel blogCreate)
+        public IActionResult Create(BlogCreateModel model)
         {
             if (ModelState.IsValid)
             {
-                var blog = ModelConverter.ConvertFromBlogCreateModel(blogCreate);
+                Blog blog = ModelConverter.ConvertFromBlogCreateModel(model);
                 BlogService.Add(blog);
                 return RedirectToAction("Overview");
             }
             else
             {
-                return View(blogCreate);
+                return View(model);
             }
         }
         public IActionResult Delete(int id)
@@ -57,28 +65,31 @@ namespace MyBlog.Controllers
             BlogService.Delete(id);
             return RedirectToAction("ModifyOverview");
         }
+        [Authorize(Policy = "IsAdmin")]
         public IActionResult ModifyOverview()
         {
-            var blogs = BlogService.GetAll();
+            List<Blog> blogs = BlogService.GetAll();
 
-            var models = blogs
+            List<ModifyOverviewModel> models = blogs
                 .Select(x => ModelConverter.ConvertToModifyOverviewModel(x))
                 .ToList();
 
             return View(models);
         }
+        [Authorize(Policy = "IsAdmin")]
         public IActionResult Modify(int id)
         {
-            var blog = BlogService.GetById(id);
-            var model = ModelConverter.ConvertToBlogModifyModel(blog);
+            Blog blog = BlogService.GetById(id);
+            BlogModifyModel model = ModelConverter.ConvertToBlogModifyModel(blog);
             return View(model);
         }
+        [Authorize(Policy = "IsAdmin")]
         [HttpPost]
         public IActionResult Modify(BlogModifyModel model)
         {
             if (ModelState.IsValid)
             {
-                var blog = ModelConverter.ConvertFromBlogModifyModel(model);
+                Blog blog = ModelConverter.ConvertFromBlogModifyModel(model);
                 BlogService.UpdateBlog(blog);
                 return RedirectToAction("ModifyOverview");
             }
@@ -86,6 +97,11 @@ namespace MyBlog.Controllers
             {
                 return View(model);
             }
+        }
+        public IActionResult Apporve(int id)
+        {
+            BlogService.Approve(id);
+            return RedirectToAction("ModifyOverview");
         }
     }
 }

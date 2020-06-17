@@ -34,6 +34,8 @@ namespace MyBlog.Data.Migrations
                     b.Property<string>("ImageUrl")
                         .IsRequired();
 
+                    b.Property<bool>("IsApproved");
+
                     b.Property<string>("Title")
                         .IsRequired();
 
@@ -56,6 +58,8 @@ namespace MyBlog.Data.Migrations
                         .IsRequired();
 
                     b.Property<DateTime>("DateCreated");
+
+                    b.Property<bool>("IsApproved");
 
                     b.Property<int>("UserId");
 
