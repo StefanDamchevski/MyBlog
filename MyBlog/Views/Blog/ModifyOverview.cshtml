@@ -26,8 +26,8 @@
                     <tr>
                         <td>@blog.Title</td>
                         <td>
-                            <a asp-controller="Blog" asp-action="Delete" asp-route-id="@blog.Id" onclick="return confirm('Are you sure you want to delete this post?')">Delete</a> |
-                            <a asp-controller="Blog" asp-action="Modify" asp-route-id="@blog.Id">Modify</a>
+                            <a asp-controller="Blog" asp-action="Modify" asp-route-id="@blog.Id">Modify</a> | 
+                            <a asp-controller="Blog" asp-action="Delete" asp-route-id="@blog.Id" onclick="return confirm('Are you sure you want to delete this post?')">Delete</a>
                         </td>
                         <td>
                             @if (!blog.IsApproved)
