@@ -8,7 +8,7 @@ namespace MyBlog.Service
 {
     public class BlogCommentService : IBlogCommentService
     {
-        public IBlogCommentRepository BlogCommentRepository { get; set; }
+        private IBlogCommentRepository BlogCommentRepository { get; set; }
         public BlogCommentService(IBlogCommentRepository blogCommentRepository)
         {
             BlogCommentRepository = blogCommentRepository;

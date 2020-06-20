@@ -9,7 +9,7 @@ namespace MyBlog.Controllers
 {
     public class AuthController : Controller
     {
-        public IAuthService AuthService { get; set; }
+        private IAuthService AuthService { get; set; }
         public AuthController(IAuthService authService)
         {
             AuthService = authService;

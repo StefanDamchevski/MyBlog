@@ -98,6 +98,7 @@ namespace MyBlog.Controllers
                 return View(model);
             }
         }
+        [Authorize(Policy ="IsAdmin")]
         public IActionResult Apporve(int id)
         {
             BlogService.Approve(id);

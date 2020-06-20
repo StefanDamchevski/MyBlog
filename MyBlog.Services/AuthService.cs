@@ -14,7 +14,7 @@ namespace MyBlog.Service
     public class AuthService : IAuthService
     {
         private IUserRepository UserRepository { get; set; }
-        public IUserService UserService { get; set; }
+        private IUserService UserService { get; set; }
 
         public AuthService(IUserRepository userRepository, IUserService userService)
         {

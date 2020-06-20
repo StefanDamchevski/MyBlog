@@ -7,7 +7,7 @@ namespace MyBlog.Repository
 {
     public class UserRepository : IUserRepository
     {
-        public MyBlogsContext Context { get; set; }
+        private MyBlogsContext Context { get; set; }
         public UserRepository(MyBlogsContext context)
         {
             Context = context;

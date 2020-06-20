@@ -15,7 +15,7 @@ namespace MyBlog.Controllers
     [Authorize]
     public class UserController : Controller
     {
-        public IUserService UserService { get; set; }
+        private IUserService UserService { get; set; }
         public UserController(IUserService userService)
         {
             UserService = userService;

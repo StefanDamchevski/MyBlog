@@ -13,7 +13,7 @@ namespace MyBlog.Controllers
     [Authorize]
     public class BlogCommentController : Controller
     {
-        public IBlogCommentService BlogCommentService { get; set; }
+        private IBlogCommentService BlogCommentService { get; set; }
         public BlogCommentController(IBlogCommentService blogCommentService)
         {
             BlogCommentService = blogCommentService;

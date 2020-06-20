@@ -8,7 +8,7 @@ namespace MyBlog.Repository
 {
     public class BlogCommentRepository : IBlogCommentRepository
     {
-        public MyBlogsContext Context { get; set; }
+        private MyBlogsContext Context { get; set; }
         public BlogCommentRepository(MyBlogsContext context)
         {
             Context = context;

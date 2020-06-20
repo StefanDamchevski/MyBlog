@@ -9,7 +9,7 @@ namespace MyBlog.Service
 {
     public class UserService : IUserService
     {
-        public IUserRepository UserRepository { get; set; }
+        private IUserRepository UserRepository { get; set; }
         public UserService(IUserRepository userRepository)
         {
             UserRepository = userRepository;
