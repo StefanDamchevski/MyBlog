@@ -32,8 +32,23 @@ namespace MyBlog.Helpers
                 BlogComments = blog.BlogComments
                                 .Select(x => ConvertToBlogCommentModel(x))
                                 .ToList(),
+                BlogLikes = blog.BlogLikes
+                                .Select(x => ConvertToBlogLikesModel(x))
+                                .ToList(),
             };
         }
+
+        private static BlogLikeModel ConvertToBlogLikesModel(BlogLike x)
+        {
+            return new BlogLikeModel
+            {
+                Id = x.Id,
+                Status = x.Status,
+                BlogId = x.BlogId,
+                UserId = x.UserId,
+            };
+        }
+
         public static BlogCommentModel ConvertToBlogCommentModel(BlogComment blogComment)
         {
             return new BlogCommentModel

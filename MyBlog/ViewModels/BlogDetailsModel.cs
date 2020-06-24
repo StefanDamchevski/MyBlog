@@ -14,5 +14,7 @@ namespace MyBlog.ViewModels
         public int Views { get; set; }
         public List<BlogCommentModel> BlogComments { get; set; }
         public SidebarData SidebarData { get; set; }
+        public List<BlogLikeModel> BlogLikes { get; set; }
+        public BlogLikeStatus LikeStatus { get; set; }
     }
 }

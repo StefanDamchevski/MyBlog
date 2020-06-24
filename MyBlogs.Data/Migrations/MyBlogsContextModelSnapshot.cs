@@ -72,6 +72,29 @@ namespace MyBlog.Data.Migrations
                     b.ToTable("BlogComments");
                 });
 
+            modelBuilder.Entity("MyBlog.Data.BlogLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogId");
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<bool>("Status");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BlogLikes");
+                });
+
             modelBuilder.Entity("MyBlog.Data.User", b =>
                 {
                     b.Property<int>("Id")
@@ -100,6 +123,19 @@ namespace MyBlog.Data.Migrations
 
                     b.HasOne("MyBlog.Data.User", "User")
                         .WithMany("BlogComments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MyBlog.Data.BlogLike", b =>
+                {
+                    b.HasOne("MyBlog.Data.Blog", "Blog")
+                        .WithMany("BlogLikes")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MyBlog.Data.User", "User")
+                        .WithMany("BlogLikes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

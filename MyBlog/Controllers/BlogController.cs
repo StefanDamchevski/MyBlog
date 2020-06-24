@@ -4,6 +4,7 @@ using MyBlog.Data;
 using MyBlog.Helpers;
 using MyBlog.Service.Interfaces;
 using MyBlog.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -38,6 +39,22 @@ namespace MyBlog.Controllers
             BlogDetailsModel model = ModelConverter.ConvertToDetailsModel(blog);
 
             model.SidebarData = BlogService.GetSidebarData();
+
+            if (User.Identity.IsAuthenticated)
+            {
+                BlogLikeModel blogLike = model.BlogLikes.FirstOrDefault(x => x.UserId == Convert.ToInt32(User.FindFirst("Id").Value));
+                if(blogLike != null)
+                {
+                    if (blogLike.Status)
+                    {
+                        model.LikeStatus = BlogLikeStatus.Liked;
+                    }
+                    else
+                    {
+                        model.LikeStatus = BlogLikeStatus.Disliked;
+                    }
+                }
+            }
 
             return View(model);
         }

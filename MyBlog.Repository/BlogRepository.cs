@@ -29,6 +29,7 @@ namespace MyBlog.Repository
             return Context.Blogs
                 .Include(x => x.BlogComments)
                     .ThenInclude(x => x.User)
+                .Include(x => x.BlogLikes)
                 .FirstOrDefault(x => x.Id == id);
         }
         public List<Blog> GetByTitle(string title)

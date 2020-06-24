@@ -13,5 +13,6 @@ namespace MyBlog.Data
         [Required]
         public bool IsAdmin { get; set; }
         public List<BlogComment> BlogComments { get; set; }
+        public List<BlogLike> BlogLikes { get; set; }
     }
 }

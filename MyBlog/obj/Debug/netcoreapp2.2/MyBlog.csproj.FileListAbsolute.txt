@@ -88,3 +88,4 @@ D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\User\ChangePass
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\BlogComment\ModifyCommentOverview.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\BlogComment\Modify.cshtml.g.cs
 D:\Academy\MVC\MyBlog\MyBlog\obj\Debug\netcoreapp2.2\Razor\Views\Shared\SidebarPartial.cshtml.g.cs
+D:\Academy\MVC\MyBlog\MyBlog\bin\Debug\netcoreapp2.2\libman.json

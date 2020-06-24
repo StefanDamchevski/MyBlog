@@ -20,5 +20,6 @@ namespace MyBlog.Data
         public List<BlogComment> BlogComments { get; set; }
         [Required]
         public bool IsApproved { get; set; }
+        public List<BlogLike> BlogLikes { get; set; }
     }
 }

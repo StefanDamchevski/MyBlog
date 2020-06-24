@@ -61,6 +61,8 @@ namespace MyBlog
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IBlogCommentService, BlogCommentService>();
             services.AddTransient<IBlogCommentRepository, BlogCommentRepository>();
+            services.AddTransient<IBlogLikeService, BlogLikeService>();
+            services.AddTransient<IBlogLikeRepository, BlogLikeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

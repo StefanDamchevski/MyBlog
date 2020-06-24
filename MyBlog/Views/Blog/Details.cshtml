@@ -6,6 +6,11 @@
     Layout = "_Layout";
     ViewBag.PageName = "Blog Details";
 }
+    <style>
+        .displayNone {
+            display: none;
+        }
+    </style>
 
     <div class="row">
         <div class="col-md-9">
@@ -18,6 +23,39 @@
                 <div class="other-info">
                     <div class="date-created">@Model.DateCreated?.ToString("yyyy/MM/dd")</div>
                     <div class="blog-views">@Model.Views Views</div>
+                </div>
+            </div>
+
+            <div class="add-likes">
+                <span class="blog-likes-count"><span id="blogLikesCount">@Model.BlogLikes.Where(x => x.Status == true).Count()</span> Likes</span>
+                <span class="blog-dislikes-count" style="margin-left:1%;"><span id="blogDislikesCount">@Model.BlogLikes.Where(x => x.Status == false).Count()</span> Dislikes</span>
+                <div class="buttons">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (Model.LikeStatus == MyBlog.ViewModels.BlogLikeStatus.None)
+                        {
+                            <button id="btnAddLike" class="btn btn-outline-success" onclick="AddLike(@Model.Id)">Like</button>
+                            <button id="btnRemoveLike" class="btn btn-success displayNone" onclick="RemoveLike(@Model.Id)">Un Like</button>
+                            <button id="btnAddDislike" class="btn btn-outline-danger" onclick="AddDislike(@Model.Id)">Dislike</button>
+                            <button id="btnRemoveDislike" class="btn btn-danger displayNone" onclick="RemoveDislike(@Model.Id)">Un Dislike</button>
+                        }
+
+                        if (Model.LikeStatus == MyBlog.ViewModels.BlogLikeStatus.Liked)
+                        {
+                            <button id="btnAddLike" class="btn btn-outline-success displayNone" onclick="AddLike(@Model.Id)">Like</button>
+                            <button id="btnRemoveLike" class="btn btn-success" onclick="RemoveLike(@Model.Id)">Un Like</button>
+                            <button id="btnAddDislike" class="btn btn-outline-danger" onclick="AddDislike(@Model.Id)">Dislike</button>
+                            <button id="btnRemoveDislike" class="btn btn-danger displayNone" onclick="RemoveDislike(@Model.Id)">Un Dislike</button>
+                        }
+
+                        if (Model.LikeStatus == MyBlog.ViewModels.BlogLikeStatus.Disliked)
+                        {
+                            <button id="btnAddLike" class="btn btn-outline-success " onclick="AddLike(@Model.Id)">Like</button>
+                            <button id="btnRemoveLike" class="btn btn-success displayNone" onclick="RemoveLike(@Model.Id)">Un Like</button>
+                            <button id="btnAddDislike" class="btn btn-outline-danger displayNone" onclick="AddDislike(@Model.Id)">Dislike</button>
+                            <button id="btnRemoveDislike" class="btn btn-danger" onclick="RemoveDislike(@Model.Id)">Un Dislike</button>
+                        }
+                    }
                 </div>
             </div>
 
@@ -47,5 +85,6 @@
         </div>
     </div>
 @section Scripts{
-    <script src="~/js/comments.js"></script>
+    <script src="~/lib/axios/axios.min.js"></script>
+    <script src="~/js/blogDetails.js"></script>
 }
